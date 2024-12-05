@@ -25,7 +25,14 @@ This project implements a conversational recommender system using FastAPI, LangC
     docker-compose up --build
     ```
 
-4. The API will be available at `http://localhost:8001/api/recommendation`.
+4. Generate embeddings before making API calls:
+
+    ```sh
+    docker exec -it conversational_recommender_system /bin/bash
+    PYTHONPATH=. python scripts/generate_embeddings.py
+    ```
+
+5. The API will be available at `http://localhost:8001/api/recommendation`.
 
 ## API Endpoint
 
@@ -50,4 +57,3 @@ This project implements a conversational recommender system using FastAPI, LangC
     ```
 
 You can also check the API documentation using Swagger UI at `http://127.0.0.1:8001/docs`.
-
