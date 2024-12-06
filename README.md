@@ -22,7 +22,8 @@ This project implements a conversational recommender system using FastAPI, LangC
 3. Build and run the Docker containers:
 
     ```sh
-    docker-compose up --build
+    docker-compose build
+    docker-compose up -d
     ```
 
 4. Generate embeddings before making API calls:
