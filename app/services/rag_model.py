@@ -9,15 +9,15 @@ class RAGModel:
         self.retriever = retriever
         self.generator = generator
 
-    def recommend(self, query, history):
+    async def recommend(self, query, history):
         try:
-            retrieved_docs = self.retriever.retrieve(query)
+            retrieved_docs = await self.retriever.retrieve(query)
         except Exception as e:
             logger.error(f"Error retrieving documents: {e}")
             raise
 
         try:
-            response = self.generator.generate(query, history, retrieved_docs)
+            response = await self.generator.generate(query, history, retrieved_docs)
         except Exception as e:
             logger.error(f"Error generating response: {e}")
             raise

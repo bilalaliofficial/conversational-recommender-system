@@ -20,7 +20,7 @@ class Generator:
             logger.error(f"Error initializing Generator: {e}")
             raise
 
-    def generate(self, query, history, retrieved_docs):
+    async def generate(self, query, history, retrieved_docs):
         try:
             doc_contents = "\n".join([doc.page_content for doc in retrieved_docs])
             prompt = self.prompt_template.format(

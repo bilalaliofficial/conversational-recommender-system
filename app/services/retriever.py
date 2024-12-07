@@ -27,7 +27,7 @@ class Retriever:
             logger.error(f"Error building index: {e}")
             raise
 
-    def retrieve(self, query, top_k=5):
+    async def retrieve(self, query, top_k=5):
         try:
             return self.vectorstore.similarity_search(query, k=top_k)
         except Exception as e:

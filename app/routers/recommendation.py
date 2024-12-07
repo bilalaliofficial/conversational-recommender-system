@@ -13,7 +13,7 @@ async def recommendation(request: RequestSchema):
         retriever = Retriever()
         generator = Generator()
         rag_model = RAGModel(retriever, generator)
-        response = rag_model.recommend(request.question, request.history)
+        response = await rag_model.recommend(request.question, request.history)
         return {"response": response}
     except ValueError as ve:
         raise HTTPException(status_code=400, detail=str(ve))
